@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Список дел</title>
+        <link rel="stylesheet" type="text/css" href="reset.css" />
+        <link rel="stylesheet" type="text/css" href="styles.css" />
+
+    </head>
+
+    <body>
+        <main>
+            <div class="title">
+                <h1 id="title">Список дел анонимного пользователя</h1> 
+            </div>
+            <div class="form">
+                <p id="error"></p>
+                <input id="input">
+                <button onclick="addTask()">Добавить</button>
+                <ol id="list">
+                    
+                </ol>
+            </div>
+        </main>
+        <script>
+            const username = prompt ("Введите имя:")
+            let count = 0 
+
+            if (username) {
+                document.getElementById ("title").innerHTML = 
+                "Ваш список дел, " + username + ":"
+            }            else {
+                document.getElementById ("title").innerHTML = 
+                "Список дел анонимного пользователя"
+            }
+
+            function addTask() {
+                count ++
+
+                if (count > 5) {
+                    document.getElementById ("error").innerHTML = "Можно ввести до 5 дел"
+                    return
+                }
+
+
+                let myInput = document.getElementById ("input")
+                let value = myInput.value 
+                let todoList = document.getElementById ("list")
+                
+                todoList.innerHTML = todoList.innerHTML + "<li>" + value + "</li>"
+                        
+            }
+        </script>
+    </body>
+</html>
